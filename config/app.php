@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'https://redesigned-yodel-44xj76jrv7qh79g6-8000.app.github.dev'),
 
     /*
     |--------------------------------------------------------------------------
