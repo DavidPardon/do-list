@@ -1,6 +1,7 @@
 <!-- Layout principa de la app -->
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+@livewireStyles
 
 <head>
     <meta charset="utf-8">
@@ -22,11 +23,14 @@
 
 <body>
     <div id="app">
-        
+        <!-- Componente de navegación -->
+        <livewire:layout.side-bar />
         @yield('content')
-       
+
     </div>
 </body>
 <!-- footer de la app -->
-<livewire:layout.footer/>
+<livewire:layout.footer />
+@livewireScripts
+
 </html>
