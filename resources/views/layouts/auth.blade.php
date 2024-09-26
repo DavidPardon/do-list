@@ -24,8 +24,7 @@
 <body>
     <div id="app">
         <!-- Componente de navegación -->
-        
-        <x-side-nav> </x-side-nav>
+       
         @yield('content')
 
     </div>

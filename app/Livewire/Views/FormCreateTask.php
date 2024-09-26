@@ -13,11 +13,10 @@ class FormCreateTask extends Component
     public function save()
     {
         $this->task->store()  ;
-        $this->dispatch("saveTask");
+        $this->dispatch("SaveTask");
         session()->flash('message', 'Tarea creada exitosamente.');
 
-        $this->reset(['title', 'description', 'priority', 'due_date']);
-
+        
         
     }
     

@@ -1,5 +1,5 @@
 <!-- Vista del Logueo-->
-@extends('layouts.app')
+@extends('layouts.auth')
 
 @section('content')
 <div class="min-h-screen flex justify-center items-center bg-gray-100">

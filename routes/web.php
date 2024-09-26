@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Task;
 use App\Livewire\Views\CreateTask;
+use App\Livewire\Views\EditTask;
+use App\Livewire\Views\FormEditTask;
 
 Route::get('/', function () {
     return view('welcome');
@@ -11,5 +13,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/Tareas', Task::class)->name('tareas');
-Route::get('/Crear-tarea', CreateTask::class)->name('crear-tarea');
+Route::get('/tareas', Task::class)->name('tareas');
+Route::get('/tarea/crear', CreateTask::class)->name('crear.tarea');
+Route::get('/tarea/{task}/editar', FormEditTask::class)->name('editar.tarea');
