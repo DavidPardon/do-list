@@ -11,12 +11,12 @@ Completada
 </button>
 @endif
 
-<a href="{{route("editar.tarea",$task)}}">
-    <button 
-        class="bg-blue-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
-    Editar
+<a href="{{route("editar.tarea", $task)}}">
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        Editar
     </button>
 </a>
+
 <button wire:click="deleteTask({{ $task->id }})"
         class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
     Borrar

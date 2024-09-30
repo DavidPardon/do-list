@@ -1,18 +1,26 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Task;
 use App\Livewire\Views\CreateTask;
-use App\Livewire\Views\EditTask;
-use App\Livewire\Views\FormEditTask;
+use App\Livewire\Views\TaskEdit;
+use App\Livewire\Views\Home;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
+Route::get('/', Home::class)->middleware('auth','verified');
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/home', Home::class)->middleware('auth','verified')->name('home');;
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Auth::routes();
+//rutas de tareas
+Route::get('/tareas', Task::class)->middleware('auth','verified')->name('tareas');
+Route::get( '/tarea/crear', CreateTask::class)->middleware('auth','verified')->name('crear-tarea');
+Route::get('/tarea/{task}/editar', TaskEdit::class)->middleware('auth','verified')->name('editar.tarea');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/tareas', Task::class)->name('tareas');
-Route::get('/tarea/crear', CreateTask::class)->name('crear.tarea');
-Route::get('/tarea/{task}/editar', FormEditTask::class)->name('editar.tarea');
+
+require __DIR__.'/auth.php';
