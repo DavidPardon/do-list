@@ -1,66 +1,90 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# TODO LIST APP
+es un proyecto sobre un to do list de tareas con crud y verificacion de email.
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Requisitos
 
-## About Laravel
+Asegúrate de tener instalados los siguientes software:
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- [PHP](https://www.php.net/) (versión requerida)
+- [Composer](https://getcomposer.org/)
+- [Node.js](https://nodejs.org/) y [npm](https://www.npmjs.com/)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Instalación
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Sigue estos pasos para instalar el proyecto:
 
-## Learning Laravel
+1. **Clona el repositorio:**
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+   ```bash
+   git clone https://github.com/DavidPardon/do-list.git
+   cd do-
+   
+2. **Instala las dependencias de PHP: Ejecuta el siguiente comando para instalar las dependencias con Composer:**
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+composer install
+3. **Instala las dependencias de JavaScript: Ejecuta el siguiente comando para instalar las dependencias con npm:**
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+npm install
 
-## Laravel Sponsors
+4. **Copia el archivo de entorno: Copia el archivo .env.example y renómbralo a .env:**
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+cp .env.example .env
 
-### Premium Partners
+5. **Genera la clave de la aplicación: Ejecuta el siguiente comando para generar la clave de la aplicación:**
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+php artisan key:generate
 
-## Contributing
+6. **Configura la base de datos: Abre el archivo .env y configura los detalles de tu base de datos (DB_CONNECTION, DB_HOST, DB_PORT, DB_DATABASE, DB_USERNAME, DB_PASSWORD).**
+puedes dejarlo en sqlite:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+DB_CONNECTION=sqlite
+# DB_HOST=127.0.0.1
+# DB_PORT=3306
+# DB_DATABASE=laravel
+# DB_USERNAME=root
+# DB_PASSWORD=
 
-## Code of Conduct
+7. **verificacion con email**
+para este paso debera ir a la pagina de mailtrap y crearse una cuenta https://mailtrap.io/register/signup?ref=header, despues navega hasta my inbox como en esta imagen <img src="img-readme/1.png">
+dale click al user para copiarlo y pegalo en el archivo .env 
+MAIL_MAILER=smtp
+MAIL_HOST=sandbox.smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME= aqui
+MAIL_PASSWORD= aqui
+MAIL_ENCRYPTION=null
+MAIL_FROM_ADDRESS="noreply@example.com"
+MAIL_FROM_NAME="${APP_NAME}"
+ donde dice MAIL_USERNAME
+ lo mismo con la password de tu archivo .env
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+<img src="img-readme/2.png">
+no cierre mailtrap porque ahi le llegaran los correos
 
-## Security Vulnerabilities
+7. **Ejecuta las migraciones: Para crear las tablas en la base de datos, ejecuta:**
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+php artisan migrate
 
-## License
+8. **Inicia el servidor de desarrollo: Ejecuta el siguiente comando para iniciar el servidor:**
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+php artisan serve
+
+Usage:
+primero puedes loguearte pero primero debes registrarte si aun no lo estas
+<img src="img-readme/3.png">
+en el menu de registro llena todos los datos y le das al boton de registrar:
+<img src="img-readme/4.png">
+ahora que te logueaste estas en la pagina de inicio:
+<img src="img-readme/5.png">
+en la parte izquierda de la pagina tenemos la barra de navegacion, puedes dar click a tareas y se mostrara el listado de tareas:
+tenemos la barra de buscar tambien hay paginado cuando pasas las 10 tareas registradas
+tenemos un listado de tareas con los botones de completar que cambia el estado de la tarea a completada, tenemos el boton de editar para editar la tarea, y el boton de eliminar
+<img src="img-readme/6.png">
+la opcion de editar te muestra este formulario de editar la tarea:
+<img src="img-readme/8.png">
+en el navegador tenemos crear tarea en la cual puedes registar una nueva tarea:
+<img src="img-readme/7.png">
+en el navegador tenemos perfil en la cual puedes puedes editar tu perfil como el nombre, el email, cambiar contraseña y eliminar cuenta
+<img src="img-readme/9.png">
+<img src="img-readme/10.png">
+
